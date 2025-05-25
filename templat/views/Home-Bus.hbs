@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus GoBooking</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(to bottom right, #2b75ff, #2d3474);
+        }
+        
+        header {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        header h1 {
+            color: #ff4b2b;
+        }
+        
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+        
+        .hero {
+            position: relative;
+            text-align: center;
+            color: white;
+            padding: 100px 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: url('busImage.jpg') no-repeat center center/cover;
+        }
+        
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+        }
+        
+        .hero h2, .hero p, .search-form {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .search-form {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 600px;
+            width: 100%;
+        }
+        
+        .search-form input, .search-form button {
+            width: 48%;
+            padding: 12px;
+            margin: 5px 1%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: all 0.2s ease-in-out;
+        }
+        
+        .search-form input:hover, .search-form button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            border-color: #ff4b2b;
+        }
+        
+        .search-form button {
+            background-color: #ff4b2b;
+            color: white;
+            cursor: pointer;
+        }
+        
+        .search-form button:hover {
+            background-color: #504298;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 15px;
+            color: white;
+            background: rgba(0, 0, 0, 0.3);
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Bus</h1>
+        <nav>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <h2>Book Bus Tickets Easily</h2>
+        <p>Find affordable buses, luxury coaches, and travel with ease.</p>
+        <div class="search-form">
+            
+            <input type="text" id="from" placeholder="From">
+            <input type="text" id="to" placeholder="To">
+            <input type="date" id="date">
+            <input type="number" id="seats" placeholder="Enter number of seats" min="1">
+            <button onclick="bookTicket()">Book</button>
+           
+        </div>
+      <p >Seat Price : 200 rupees</p>
+    </div>
+       
+
+    <footer>
+        &copy; 2025 GoBooking. All rights reserved.
+    </footer>
+
+    <script>
+        function bookTicket() {
+            let from = document.getElementById("from").value;
+            let to = document.getElementById("to").value;
+            let date = document.getElementById("date").value;
+            let seats = document.getElementById("seats").value;
+            
+            if (!from || !to || !date || !seats) {
+                alert("Please fill all details.");
+                return;
+            }
+            
+            let pricePerSeat = 200;
+            let totalPrice = pricePerSeat * seats;
+            let seatNumbers = [];
+            for (let i = 0; i < seats; i++) {
+                seatNumbers.push(Math.floor(Math.random() * 50) + 1);
+            }
+            
+            alert(`Ticket Details:\nFrom: ${from}\nTo: ${to}\nDate: ${date}\nSeats: ${seats}\nSeat Numbers: ${seatNumbers.join(", ")}\nTotal Price: ₹${totalPrice}`);
+        }
+    </script>
+</body>
+</html>
+

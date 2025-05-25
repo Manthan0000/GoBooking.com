@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoBooking - Easy Ticket Booking</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background: linear-gradient(to right, #141e30, #243b55);
+            color: #f8f9fa;
+            text-align: center;
+            background:url("bg-home.png");
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background: rgba(0, 0, 0, 0.8);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            height:80px;
+            z-index: 1000;
+
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 2rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: #f8f9fa;
+        }
+        .combo-logo{
+            display: flex;
+            flex-direction: row;
+            margin-right:35px;
+            padding:20px;
+        }
+        .nav {
+            display: flex;
+            gap: 1.5rem;
+        }
+        .nav-link {
+            color: #f8f9fa;
+            font-size: 1.125rem;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .nav-link:hover {
+            color: #ff9800;
+        }
+        .toggle-theme {
+            background: none;
+            border: none;
+            color: #f8f9fa;
+            font-size: 1.5rem;
+            cursor: pointer;
+        } 
+        .hero-section {
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+        .hero-section h1 {
+            font-size: 3rem;
+            color:black;
+        }
+        .hero-section p {
+            font-size: 1.2rem;
+            margin: 2rem 0;
+            color:#141e30;
+            color:black;
+    
+        }
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: #0084ff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: background 0.3s;
+            margin-top:1.9rem;
+        }
+        .btn:hover {
+            background: #005ce6;
+        }
+        .lgo-btn{
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: #0084ff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 10px;
+            border: none;
+            transition: background 0.3s;
+            margin-top:3px;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        .lgo-btn:hover{
+            background-color: rgb(32, 32, 129);
+        }
+        .books-blog {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem auto;
+            max-width: 1200px;
+            padding: 2rem;
+            background:linear-gradient(to right,rgb(82, 82, 174),rgb(63, 63, 205));
+
+            border-radius: 10px;
+
+        }
+        .blog {
+            padding: 2rem;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .blog:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.4);
+        }
+        .blog img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .main-content {
+            margin-top: 1rem;
+            font-size: 1.2rem;
+        }
+        .about-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 3rem 2rem;
+            background: linear-gradient(to right, #1e3c72, #2a5298); 
+        }
+        
+        .about-content {
+            max-width: 900px;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            color: #ffffff;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+
+        
+        #about-head {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #ffcc00;
+        }
+        
+        .about-content p {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+        
+        .about-content h4 {
+            margin-top: 1.5rem;
+            font-size: 1.5rem;
+            color: #ff9800;
+        }
+        
+        .about-content ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .about-content ul li {
+            font-size: 1.1rem;
+            margin: 0.5rem 0;
+            padding: 0.5rem;
+            transition: background 0.3s ease;
+        }
+        
+        
+        
+        footer {
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.9);
+            text-align: center;
+        }
+        .tc{
+            text-align: center;
+            font-size: small;
+        }
+        body.dark-mode {
+            background: #141e30;
+            color: #f8f9fa;
+        }
+
+        .header-content.dark-mode {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+        }
+
+        .nav-link.dark-mode {
+            color: #ffffff;
+        }
+
+        .btn.dark-mode {
+            background: #ff9800;
+            color: #000;
+        }
+
+        .books-blog.dark-mode {
+            background: linear-gradient(to right, rgb(30, 30, 60), rgb(20, 20, 50));
+        }
+        .hero-section.dark-mode p{
+            color: #ffffff;
+
+        }
+        .hero-section.dark-mode h1{
+            color: #ffffff;
+
+        }
+
+        .about-section.dark-mode {
+            background: linear-gradient(to right, #101a27, #1a2b40);
+        }
+
+        .footer.dark-mode {
+            background: rgba(255, 255, 255, 0.1);
+            color: #f8f9fa;
+        }
+
+        .toggle-theme {
+            background: none;
+            border: none;
+            color: #f8f9fa;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        html {
+    scroll-behavior: smooth;
+}
+#greet{
+    color:rgb(83, 20, 83);
+    font-family:'Times New Roman', Times, serif;
+    font-weight: 1000;
+    font-size:3rem;
+   padding-top: 10px;
+}
+
+
+    </style>
+</head>
+<body>
+    <header class="header-content" >
+        <div class="combo-logo">
+            <span><img src="GoBooking2.png" alt="" style="width: 50px; height: 50px; padding-right:0;"></span>
+            <a href="#" class="logo">GoBooking</a>
+        </div>
+       
+        <nav class="nav">
+            <a href="#home" class="nav-link" id="home-link">Home</a>
+            <a href="About-Home" class="nav-link">Features</a>
+            <a href="#about" class="nav-link" id="abt">About</a>
+        </nav> 
+        <!-- <button class="toggle-theme" onclick="toggleTheme()"><i class="fas fa-moon"></i></button> -->
+        <button class="toggle-theme" onclick="toggleTheme()">
+            <i class="fas fa-moon" id="theme-icon"></i>
+        </button>
+        
+    </header>
+    
+    <main class="hero-section" id="home">
+        <h1>Book Your Tickets with Ease</h1>
+        <p>Find the best deals on movies, travel, and more!</p>
+        <a href="/get-started" class="btn" >Get Started</a>
+        {{#if loggedIn}}
+        <p id="greet">Welcome, {{username}}!</p>
+        <a  href="/logout" style="none"><button class="lgo-btn">Logout</button></a>
+    {{/if}}
+    </main>
+    
+    <section class="books-blog">
+        <div class="blog"><a href="Home-Cinema"><img src="bg-cinema.png" alt="Movie" ></a><div class="main-content">Book Movie Tickets Instantly!</div></div>
+        <div class="blog"><a href="Home-Bus"><img src="bg-bus.png" alt="Bus" href=""></a><div class="main-content">Affordable Bus Tickets Available!</div></div>
+        <div class="blog" ><a href="Home-Railways"><img src="bg-train.avif" alt="Train" ></a><div class="main-content">Book Trains with Comfort!</div></div>
+        <div class="blog"><a href="Home-Airline"><img src="bg-airplane.png" alt="Flight" href=""></a><div class="main-content">Get the Best Flight Deals!</div></div>
+        <!-- <div class="blog"><img src="hotelmain.avif" alt="Hotel"><div class="main-content">Find the Best Hotel Deals!</div></div> -->
+        <div class="blog"><a href="Home-Cricket"><img src="bg-criket.png" alt="Sports" href=""></a><div class="main-content">Watch Live Matches!</div></div>
+    </section>
+
+    {{!-- <section class="about-section"> --}}
+    <section class="about-section" id="about">
+        <div class="about-content">
+            <h3 id="about-head">About Us</h3>
+            <p>
+                Welcome to <b>GoBooking</b>, your ultimate platform for hassle-free bookings! Whether it's taxis, movie tickets, travel, or hotel stays, we've got everything in one place.
+            </p>
+            <br>
+            <p>
+                Our goal is to simplify your booking experience with a fast, reliable, and secure platform. No more switching between multiple apps—just book and enjoy!
+            </p>
+            <br>
+            <h4>Why Choose GoBooking?</h4>
+            <ul>
+                <li><b>All-in-One Booking:</b> Book taxis, hotels, movies, and more in a single place.</li>
+                <li><b>Secure & Fast Transactions:</b> Trusted payment gateways for a seamless experience.</li>
+                <li><b>Easy-to-Use Platform:</b> A simple interface designed for effortless booking.</li>
+                <li><b>24/7 Customer Support:</b> We're here to assist you anytime, anywhere.</li>
+            </ul>
+            <br>
+            <p>
+                Join thousands of satisfied users who trust GoBooking for their daily bookings. **Book with ease, travel with confidence!
+            </p>
+        </div>
+    </section>
+    
+    <footer>
+        <p>&copy; 2025 GoBooking. All rights reserved.</p>
+        <a href="#" class="tc">Terms & Conditions</a>
+    </footer>
+    
+    <script>
+    function toggleTheme() {
+    document.body.classList.toggle("dark-mode");
+    document.querySelector(".header-content").classList.toggle("dark-mode");
+    document.querySelector(".books-blog").classList.toggle("dark-mode");
+    document.querySelector(".about-section").classList.toggle("dark-mode");
+    document.querySelector("footer").classList.toggle("dark-mode");
+    document.querySelector(".hero-section").classList.toggle("dark-mode");
+
+    let themeIcon = document.getElementById("theme-icon");
+    if (document.body.classList.contains("dark-mode")) {
+        themeIcon.classList.replace("fa-moon", "fa-sun");
+        localStorage.setItem("theme", "dark");
+    } else {
+        themeIcon.classList.replace("fa-sun", "fa-moon");
+        localStorage.setItem("theme", "light");
+    }
+}
+
+// Load stored theme on page load
+window.onload = function () {
+    if (localStorage.getItem("theme") === "dark") {
+        toggleTheme();
+    }
+};
+
+    document.getElementById("abt").addEventListener("click", function(event) {
+        event.preventDefault(); // Prevent default anchor behavior
+        document.querySelector("#about").scrollIntoView({ behavior: "smooth" });
+    });
+    document.getElementById("#home-link").addEventListener("click",function(event){
+        event.preventDefault();
+        document.querySelector("#home").scrollIntoView({behavior:"smooth",pos:"top"});
+    })
+
+     </script>
+</body>
+</html>

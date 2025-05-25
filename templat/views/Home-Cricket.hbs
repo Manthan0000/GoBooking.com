@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPL 2025 Matches</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        #match-info {
+            margin-top: 20px;
+            display: none;
+        }
+
+        #match-details {
+            font-size: 18px;
+        }
+
+        select {
+            padding: 5px;
+            font-size: 16px;
+            margin-top: 10px;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        label {
+            font-size: 18px;
+        }
+
+        p {
+            margin: 5px 0;
+        }
+
+        #seat-selection {
+            margin-top: 30px;
+            padding-top: 20px;
+            display: none;
+        }
+
+        #price-display {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+         * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+            background: url("image.jpg");
+            background-size: cover;
+            min-height: 100vh;
+            padding: 20px;
+            color: #fff;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 1s ease-in;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        label {
+            font-size: 1.2rem;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        select {
+            width: 100%;
+            padding: 12px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        select:hover {
+            background: #fff;
+            transform: translateY(-2px);
+        }
+
+        select:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.5);
+        }
+
+        #match-info {
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            background: url("image.jpg");
+            background: linear-gradient(135deg, #4348a881, #11648778);
+            
+            background-size:cover ;
+            background-repeat;
+            border-radius: 10px;
+            display: none;
+            animation: slideIn 0.5s ease-in-out;
+            color:rgb(255, 255, 255);
+            font-weight: 500;
+            width:1500px;
+        }
+
+        #match-info h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #ffd700;
+        }
+
+        #match-details p {
+            font-size: 1.1rem;
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+
+        #match-details strong {
+            color: #ffd700;
+            font-weight: 600;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            select {
+                font-size: 1rem;
+                padding: 10px;
+               
+            }
+           
+            #match-info h2 {
+                font-size: 1.5rem;
+            }
+
+            #match-details p {
+                font-size: 1rem;
+            }
+            #btn-book {
+    width: 100%;
+    height: 60px;
+    background: rgb(67, 67, 167);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+#book-btn {
+    width: 80%;
+    height: 50px;
+    font-size: 1.2rem;
+    background: rgb(67, 67, 167);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#book-btn:hover {
+    background: rgb(21, 52, 125);
+}
+
+#seat-quantity {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+}
+
+#seat-quantity label {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: rgb(67, 67, 167);
+}
+
+#seat-quantity input {
+    width: 80%;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 2px solid rgb(67, 67, 167);
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+#seat-quantity input:focus {
+    border-color: rgb(21, 52, 125);
+    box-shadow: 0 0 5px rgba(21, 52, 125, 0.5);
+}
+
+#seat-quantity input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+
+            
+        }
+    </style>
+</head>
+<body>
+    <h1>IPL 2025 Match Schedule</h1>
+    <label for="match-select">Select a Match:</label>
+    <select id="match-select">
+        <option value="">-- Select a Match --</option>
+    </select>
+
+    <div id="match-info">
+        <h2>Match Info:</h2>
+        <div id="match-details">
+            <p><strong>Match:</strong> <span id="match-name"></span></p>
+            <p><strong>Date:</strong> <span id="match-date"></span></p>
+            <p><strong>Time:</strong> <span id="match-time"></span></p>
+            <p><strong>Venue:</strong> <span id="venue-name"></span></p>
+        </div>
+    </div>
+
+    <div id="seat-selection">
+        <h3>Select Seat Type and Quantity:</h3>
+        <label for="seat-type">Select Seat Type:</label>
+        <select id="seat-type">
+            <option value="">-- Select a Seat Type --</option>
+            <option value="vip">VIP - ₹25000</option>
+            <option value="premium">Premium - ₹8000</option>
+            <option value="regular">Regular - ₹3000</option>
+        </select>
+
+       <div id="seat-quantity">
+    <label for="quantity">Seat Quantity:</label>
+    <input type="number" id="quantity" name="quantity" min="1" max="10" value="1" style="
+                background: linear-gradient(135deg, #4348a881, #11648778);
+
+        border: none;
+        color: white;
+        padding: 12px 24px;
+        font-size: 18px;
+        font-weight: bold;
+        border-radius: 8px;
+        transition: 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+     ">
+</div>
+
+        <div id="price-display">
+            <p><strong>Total Price:</strong>₹<span id="total-price">0</span></p>
+        </div>
+        <div id="btn-book">
+    <button type="submit" id="book-btn" onclick="popup()" style="
+                background: linear-gradient(135deg, #4348a881, #11648778);
+
+        border: none;
+        color: white;
+        padding: 12px 24px;
+        font-size: 18px;
+        font-weight: bold;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    " 
+    onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 6px 10px rgba(0, 0, 0, 0.3)';" 
+    onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 6px rgba(0, 0, 0, 0.2)';">Book now</button>
+</div>
+
+       
+            
+    </div>
+
+    <script>
+        const matches = [
+           { date: "March 22", time: "7:30 PM", match: "Kolkata Knight Riders vs Royal Challengers Bengaluru", venue: "Eden Gardens, Kolkata" },
+            { date: "March 23", time: "3:30 PM", match: "Sunrisers Hyderabad vs Rajasthan Royals", venue: "Rajiv Gandhi International Stadium, Hyderabad" },
+            { date: "March 23", time: "7:30 PM", match: "Chennai Super Kings vs Mumbai Indians", venue: "MA Chidambaram Stadium, Chennai" },
+            { date: "March 24", time: "7:30 PM", match: "Delhi Capitals vs Lucknow Super Giants", venue: "Dr. Y.S. Rajasekhara Reddy ACA-VDCA Cricket Stadium, Visakhapatnam" },
+            { date: "March 25", time: "7:30 PM", match: "Gujarat Titans vs Punjab Kings", venue: "Narendra Modi Stadium, Ahmedabad" },
+            { date: "March 26", time: "7:30 PM", match: "Rajasthan Royals vs Kolkata Knight Riders", venue: "Barsapara Cricket Stadium, Guwahati" },
+            { date: "March 27", time: "7:30 PM", match: "Sunrisers Hyderabad vs Lucknow Super Giants", venue: "Rajiv Gandhi International Stadium, Hyderabad" },
+            { date: "March 28", time: "7:30 PM", match: "Royal Challengers Bengaluru vs Chennai Super Kings", venue: "M. Chinnaswamy Stadium, Bengaluru" },
+            { date: "March 29", time: "7:30 PM", match: "Gujarat Titans vs Mumbai Indians", venue: "Narendra Modi Stadium, Ahmedabad" },
+            { date: "March 30", time: "3:30 PM", match: "Delhi Capitals vs Sunrisers Hyderabad", venue: "Dr. Y.S. Rajasekhara Reddy ACA-VDCA Cricket Stadium, Visakhapatnam" },
+            { date: "March 30", time: "7:30 PM", match: "Rajasthan Royals vs Chennai Super Kings", venue: "Barsapara Cricket Stadium, Guwahati" },
+            { date: "March 31", time: "7:30 PM", match: "Mumbai Indians vs Kolkata Knight Riders", venue: "Wankhede Stadium, Mumbai" },
+            { date: "April 1", time: "7:30 PM", match: "Lucknow Super Giants vs Punjab Kings", venue: "BRSABV Ekana Cricket Stadium, Lucknow" },
+            { date: "April 2", time: "7:30 PM", match: "Gujarat Titans vs Royal Challengers Bengaluru", venue: "Narendra Modi Stadium, Ahmedabad" },
+            { date: "April 3", time: "7:30 PM", match: "Kolkata Knight Riders vs Sunrisers Hyderabad", venue: "Eden Gardens, Kolkata" },
+            { date: "April 4", time: "7:30 PM", match: "Mumbai Indians vs Lucknow Super Giants", venue: "Wankhede Stadium, Mumbai" },
+            { date: "April 5", time: "3:30 PM", match: "Chennai Super Kings vs Delhi Capitals", venue: "MA Chidambaram Stadium, Chennai" },
+            { date: "April 5", time: "7:30 PM", match: "Punjab Kings vs Rajasthan Royals", venue: "Maharaja Yadavindra Singh International Cricket Stadium, Mullanpur" },
+            { date: "April 6", time: "3:30 PM", match: "Kolkata Knight Riders vs Lucknow Super Giants", venue: "Eden Gardens, Kolkata" },
+            { date: "April 6", time: "7:30 PM", match: "Sunrisers Hyderabad vs Gujarat Titans", venue: "Rajiv Gandhi International Stadium, Hyderabad" },
+            { date: "April 7", time: "7:30 PM", match: "Mumbai Indians vs Royal Challengers Bengaluru", venue: "Wankhede Stadium, Mumbai" },
+            { date: "April 8", time: "7:30 PM", match: "Punjab Kings vs Chennai Super Kings", venue: "Maharaja Yadavindra Singh International Cricket Stadium, Mullanpur" },
+            { date: "April 9", time: "7:30 PM", match: "Gujarat Titans vs Rajasthan Royals", venue: "Narendra Modi Stadium, Ahmedabad" },
+            { date: "April 10", time: "7:30 PM", match: "Royal Challengers Bengaluru vs Delhi Capitals", venue: "M. Chinnaswamy Stadium, Bengaluru" },
+            { date: "April 11", time: "7:30 PM", match: "Chennai Super Kings vs Kolkata Knight Riders", venue: "MA Chidambaram Stadium, Chennai" },
+            { date: "April 12", time: "3:30 PM", match: "Lucknow Super Giants vs Gujarat Titans", venue: "BRSABV Ekana Cricket Stadium, Lucknow" },
+            { date: "April 12", time: "7:30 PM", match: "Sunrisers Hyderabad vs Punjab Kings", venue: "Rajiv Gandhi International Stadium, Hyderabad" },
+            { date: "April 13", time: "3:30 PM", match: "Rajasthan Royals vs Royal Challengers Bengaluru", venue: "Sawai Mansingh Stadium, Jaipur" },
+            { date: "April 13", time: "7:30 PM", match: "Delhi Capitals vs Mumbai Indians", venue: "Arun Jaitley Stadium, Delhi" },
+            { date: "April 14", time: "7:30 PM", match: "Lucknow Super Giants vs Chennai Super Kings", venue: "BRSABV Ekana Cricket Stadium, Lucknow" },
+            { date: "April 15", time: "7:30 PM", match: "Punjab Kings vs Kolkata Knight Riders", venue: "Maharaja Yadavindra Singh International Cricket Stadium, Mullanpur" },
+            { date: "April 16", time: "7:30 PM", match: "Delhi Capitals vs Rajasthan Royals", venue: "Arun Jaitley Stadium, Delhi" },
+            { date: "April 17", time: "7:30 PM", match: "Mumbai Indians vs Sunrisers Hyderabad", venue: "Wankhede Stadium, Mumbai" },
+            { date: "April 18", time: "7:30 PM", match: "Royal Challengers Bengaluru vs Punjab Kings", venue: "M. Chinnaswamy Stadium, Bengaluru" },
+            { date: "April 19", time: "7:30 PM", match: "Gujarat Titans vs Delhi Capitals", venue: "Narendra Modi Stadium, Ahmedabad" },
+            { date: "April 20", time: "3:30 PM", match: "Rajasthan Royals vs Lucknow Super Giants", venue: "Sawai Mansingh Stadium, Jaipur" },
+            { date: "April 20", time: "7:30 PM", match: "Kolkata Knight Riders vs Gujarat Titans", venue: "Eden Gardens, Kolkata" },
+            { date: "April 21", time: "7:30 PM", match: "Lucknow Super Giants vs Delhi Capitals", venue: "BRSABV Ekana Cricket Stadium, Lucknow" },
+            { date: "April 22", time: "7:30 PM", match: "Sunrisers Hyderabad vs Mumbai Indians", venue: "Rajiv Gandhi International Stadium, Hyderabad" },
+            { date: "April 23", time: "7:30 PM", match: "Royal Challengers Bengaluru vs Rajasthan Royals", venue: "M. Chinnaswamy Stadium, Bengaluru" },
+            { date: "April 24", time: "7:30 PM", match: "Chennai Super Kings vs Sunrisers Hyderabad", venue: "MA Chidambaram Stadium, Chennai" },
+            { date: "April 25", time: "7:30 PM", match: "Kolkata Knight Riders vs Punjab Kings", venue: "Eden Gardens, Kolkata" },
+            { date: "April 26", time: "3:30 PM", match: "Mumbai Indians vs Lucknow Super Giants", venue: "Wankhede Stadium, Mumbai" },
+            { date: "April 26", time: "7:30 PM", match: "Delhi Capitals vs Royal Challengers Bengaluru", venue: "Arun Jaitley Stadium, Delhi" },
+            { date: "April 27", time: "7:30 PM", match: "Rajasthan Royals vs Gujarat Titans", venue: "Sawai Mansingh Stadium, Jaipur" },
+            { date: "April 28", time: "7:30 PM", match: "Delhi Capitals vs Kolkata Knight Riders", venue: "Arun Jaitley Stadium, Delhi" },
+            { date: "April 29", time: "7:30 PM", match: "Chennai Super Kings vs Punjab Kings", venue: "MA Chidambaram Stadium, Chennai" },
+            { date: "April 30", time: "7:30 PM", match: "Rajasthan Royals vs Mumbai Indians", venue: "Sawai Mansingh Stadium, Jaipur" },
+            { date: "May 1", time: "7:30 PM", match: "Gujarat Titans vs Sunrisers Hyderabad", venue: "Narendra Modi Stadium, Ahmedabad" },
+            { date: "May 2", time: "7:30 PM", match: "Royal Challengers Bengaluru vs Chennai Super Kings", venue: "M. Chinnaswamy Stadium, Bengaluru" },
+            { date: "May 3", time: "3:30 PM", match: "Kolkata Knight Riders vs Rajasthan Royals", venue: "Eden Gardens, Kolkata" },
+            { date: "May 3", time: "7:30 PM", match: "Punjab Kings vs Lucknow Super Giants", venue: "Himachal Pradesh Cricket Association Stadium, Dharamsala" },
+            { date: "May 4", time: "7:30 PM", match: "Sunrisers Hyderabad vs Delhi Capitals", venue: "Rajiv Gandhi International Stadium, Hyderabad" },
+            { date: "May 5", time: "7:30 PM", match: "Mumbai Indians vs Gujarat Titans", venue: "Wankhede Stadium, Mumbai" },
+            { date: "May 6", time: "7:30 PM", match: "Kolkata Knight Riders vs Chennai Super Kings", venue: "Eden Gardens, Kolkata" },
+            { date: "May 7", time: "7:30 PM", match: "Punjab Kings vs Delhi Capitals", venue: "Himachal Pradesh Cricket Association Stadium, Dharamsala" },
+            { date: "May 8", time: "7:30 PM", match: "Lucknow Super Giants vs Royal Challengers Bengaluru", venue: "BRSABV Ekana Cricket Stadium, Lucknow" },
+            { date: "May 9", time: "7:30 PM", match: "Sunrisers Hyderabad vs Kolkata Knight Riders", venue: "Rajiv Gandhi International Stadium, Hyderabad" },
+            { date: "May 10", time: "3:30 PM", match: "Punjab Kings vs Mumbai Indians", venue: "Himachal Pradesh Cricket Association Stadium, Dharamsala" },
+            { date: "May 10", time: "7:30 PM", match: "Delhi Capitals vs Gujarat Titans", venue: "Arun Jaitley Stadium, Delhi" },
+            { date: "May 11", time: "7:30 PM", match: "Chennai Super Kings vs Rajasthan Royals", venue: "MA Chidambaram Stadium, Chennai" },
+            { date: "May 12", time: "7:30 PM", match: "Royal Challengers Bengaluru vs Sunrisers Hyderabad", venue: "M. Chinnaswamy Stadium, Bengaluru" },
+            { date: "May 13", time: "7:30 PM", match: "Gujarat Titans vs Lucknow Super Giants", venue: "Narendra Modi Stadium, Ahmedabad" },
+            { date: "May 14", time: "7:30 PM", match: "Mumbai Indians vs Delhi Capitals", venue: "Wankhede Stadium, Mumbai" },
+            { date: "May 15", time: "7:30 PM", match: "Rajasthan Royals vs Punjab Kings", venue: "Sawai Mansingh Stadium, Jaipur" },
+            { date: "May 16", time: "7:30 PM", match: "Royal Challengers Bengaluru vs Kolkata Knight Riders", venue: "M. Chinnaswamy Stadium, Bengaluru" },
+            { date: "May 17", time: "7:30 PM", match: "Gujarat Titans vs Chennai Super Kings", venue: "Narendra Modi Stadium, Ahmedabad" },
+            { date: "May 18", time: "3:30 PM", match: "Lucknow Super Giants vs Sunrisers Hyderabad", venue: "BRSABV Ekana Cricket Stadium, Lucknow" },
+            { date: "May 18", time: "7:30 PM", match: "Punjab Kings vs Mumbai Indians", venue: "Maharaja Yadavindra Singh International Cricket Stadium, Mullanpur" },
+            { date: "May 20", time: "7:30 PM", match: "Qualifier 1", venue: "Rajiv Gandhi International Stadium, Hyderabad" },
+            { date: "May 21", time: "7:30 PM", match: "Eliminator", venue: "Rajiv Gandhi International Stadium, Hyderabad" },
+            { date: "May 23", time: "7:30 PM", match: "Qualifier 2", venue: "Eden Gardens, Kolkata" },
+            { date: "May 25", time: "7:30 PM", match: "Final", venue: "Eden Gardens, Kolkata" }
+        ];
+
+      document.addEventListener("DOMContentLoaded", function () {
+    const matchSelect = document.getElementById("match-select");
+    const matchInfo = document.getElementById("match-info");
+    const matchName = document.getElementById("match-name");
+    const matchDate = document.getElementById("match-date");
+    const matchTime = document.getElementById("match-time");
+    const venueName = document.getElementById("venue-name");
+    const seatSelection = document.getElementById("seat-selection");
+    const seatType = document.getElementById("seat-type");
+    const quantityInput = document.getElementById("quantity");
+    const totalPrice = document.getElementById("total-price");
+
+    matches.forEach((match, index) => {
+        const option = document.createElement("option");
+        option.value = index;
+        option.textContent = match.match;
+        matchSelect.appendChild(option);
+    });
+
+    // Show match details when selected
+    matchSelect.addEventListener("change", function () {
+        if (matchSelect.value !== "") {
+            const selectedMatch = matches[matchSelect.value];
+            matchName.textContent = selectedMatch.match;
+            matchDate.textContent = selectedMatch.date;
+            matchTime.textContent = selectedMatch.time;
+            venueName.textContent = selectedMatch.venue;
+            matchInfo.style.display = "block";
+            seatSelection.style.display = "block";
+        } else {
+            matchInfo.style.display = "none";
+            seatSelection.style.display = "none";
+        }
+    });
+
+    // Function to calculate and update total price
+    function updatePrice() {
+        const seatPrices = {
+            vip: 25000,
+            premium: 8000,
+            regular: 3000
+        };
+
+        const selectedSeatType = seatType.value;
+        const quantity = parseInt(quantityInput.value) || 0;
+
+        if (selectedSeatType && quantity > 0) {
+            totalPrice.textContent = seatPrices[selectedSeatType] * quantity;
+        } else {
+            totalPrice.textContent = "0";
+        }
+    }
+
+    // Update price when seat type or quantity changes
+    seatType.addEventListener("change", updatePrice);
+    quantityInput.addEventListener("input", updatePrice);
+
+});
+function popup(){
+    const quantityInput = document.getElementById("quantity");
+    const totalPrice = document.getElementById("total-price");
+    const seatType = document.getElementById("seat-type");
+
+    const seatPrices = {
+            vip: 25000,
+            premium: 8000,
+            regular: 3000
+        };
+    const selectedSeatType = seatType.value;
+    const quantity = parseInt(quantityInput.value) || 0;
+
+    if (selectedSeatType && quantity > 0) {
+        totalPrice.textContent = seatPrices[selectedSeatType] * quantity;
+    } else {
+        totalPrice.textContent = "0";
+    }
+    alert(`${quantity} Seats Booked Sucessfully Total Price is ${totalPrice.textContent}`);
+}
+
+    </script>
+</body>
+</html>

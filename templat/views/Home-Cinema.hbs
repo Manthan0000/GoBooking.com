@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Blog</title>
+    <style>
+        /** {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #243b559a;
+            
+        }
+       
+        .header {
+            background-color: #243b55;
+            padding: 20px;
+            text-align: center;
+          
+        }
+        
+        
+        .search-box {
+            width: 50%;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            font-size: 16px;
+        }
+        
+        .search-type {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        
+        .search-type a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.2);
+            transition: 0.3s;
+        }
+        
+        .search-type a:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
+        main{
+            background: url("GoBooking1.png");
+            background-size:contain;
+            
+        }
+        .dark-mode main{
+            background: url("GoBooking1.png");
+            background-size: contain;
+        }
+        
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            
+        }
+
+        
+        .blog {
+            background: white;
+            width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            text-align: center;
+            padding: 15px;
+        }
+        .dark-mode .blog {
+            background: #333;
+            color: white;
+        }
+        
+        .img-blog img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            width:270px;
+            height:355px;
+            object-fit: cover;
+        }
+        
+        .movie-name {
+            font-size: 20px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        
+        .movie-type {
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        
+        .movie-rating {
+            color: #f39c12;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        
+        .movie-seats-available {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 5px;
+        }
+        
+        .movie-release-date {
+            font-size: 14px;
+            font-weight: bold;
+            color: #d35400;
+        }
+        footer{
+            background-color: #333;
+            color: #fff;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            height:100px;
+        }*/
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #243b559a;
+            transition: background 0.3s;
+        }
+       
+        .header {
+            background-color: #243b55;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+        
+        .search-box {
+            width: 50%;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            font-size: 16px;
+        }
+        
+        .search-type {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        
+        .search-type a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.2);
+            transition: 0.3s;
+        }
+        
+        .search-type a:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
+        
+        main {
+            background: url("GoBooking1.png") no-repeat center;
+            background-size: cover;
+            padding: 20px 0;
+        }
+        
+        .container {
+            width: 80%;
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        
+        .blog {
+            background: white;
+            width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            text-align: center;
+            padding: 15px;
+            transition: background 0.3s, color 0.3s;
+        }
+        .blog:hover{
+            cursor:pointer;
+        }
+        .dark-mode .blog {
+            background: #333;
+            color: white;
+        }
+        
+        .img-blog img {
+            width: 100%;
+            height: 355px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        
+        .movie-name {
+            font-size: 20px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        
+        .movie-type {
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        
+        .movie-rating {
+            color: #f39c12;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        
+        .movie-seats-available {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 5px;
+        }
+        
+        .movie-release-date {
+            font-size: 14px;
+            font-weight: bold;
+            color: #d35400;
+        }
+        
+        footer {
+            background-color: #333;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100px;
+            margin-top: 20px;
+        }
+
+        .toggle-theme {
+            margin-top: 10px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        
+        .dark-mode {
+            background-color:rgb(109, 103, 103);
+            
+        
+        }
+        .dark-mode main{
+            background: url("GoBooking2.png") no-repeat center;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <input type="text" placeholder="Search movies..." class="search-box">
+        <div class="search-type">
+            <a href="#">Action</a>
+            <a href="#">Thriller</a>
+            <a href="#">Horror</a>
+            <a href="#">Sci-fi</a>
+            <a href="#">Romantic</a>
+            <a href="#">Comedy</a>
+            <a href="#">Crime</a>
+            <a href="#">History</a>
+            <a href="#">South</a>
+        </div>
+        <button class="toggle-theme" onclick="toggleTheme()">🌙</button>
+    </header>
+    <main>
+    <div class="container">
+        <div class="blog" onclick="Seating()">
+            <div class="img-blog">
+                <img src="movie1.jpg" alt="Movie Image">
+            </div>
+            <div class="movie-name">Chhaava</div>
+            <div class="movie-type">History-Action</div>
+            <div class="movie-rating">★★★★★</div>
+            <div class="movie-seats-available">Seats Available: 226</div>
+            <div class="movie-release-date">Release Date: 14<sup>th</sup> February</div>
+        </div>
+        <div class="blog" onclick="Seating()">
+            <div class="img-blog">
+                <img src="movie2.jpeg" alt="Movie Image">
+            </div>
+            <div class="movie-name">Fateh</div>
+            <div class="movie-type">Action</div>
+            <div class="movie-rating">★★★★★</div>
+            <div class="movie-seats-available">Seats Available: 226</div>
+            <div class="movie-release-date">Release Date: 10<sup>th</sup> january</div>
+        </div>
+        <div class="blog" onclick="Seating()">
+            <div class="img-blog">
+                <img src="movie3.jpg" alt="Movie Image">
+            </div>
+            <div class="movie-name">Annebella</div>
+            <div class="movie-type">Horror</div>
+            <div class="movie-rating">★★★★★</div>
+            <div class="movie-seats-available">Seats Available: 226</div>
+            <div class="movie-release-date">Release Date: 26<sup>th</sup> june</div>
+        </div>
+        <div class="blog" onclick="Seating()">
+            <div class="img-blog">
+                <img src="movie4.avif" alt="Movie Image">
+            </div>
+            <div class="movie-name">Deva</div>
+            <div class="movie-type">Thriller</div>
+            <div class="movie-rating">★★★★★</div>
+            <div class="movie-seats-available">Seats Available: 226</div>
+            <div class="movie-release-date">Release Date: 31<sup>th</sup> january</div>
+        </div>
+        <div class="blog" onclick="Seating()">
+            <div class="img-blog">
+                <img src="movie5.jpg" alt="Movie Image">
+            </div>
+            <div class="movie-name">Avatar the way of water</div>
+            <div class="movie-type">Sci-fi</div>
+            <div class="movie-rating">★★★★★</div>
+            <div class="movie-seats-available">Seats Available: 226</div>
+            <div class="movie-release-date">Release Date: 16<sup>th</sup> December</div>
+        </div>
+        <div class="blog" onclick="Seating()">
+            <div class="img-blog">
+                <img src="movie6.jpg" alt="Movie Image">
+            </div>
+            <div class="movie-name">Love aaj kal</div>
+            <div class="movie-type">Romantic</div>
+            <div class="movie-rating">★★★★★</div>
+            <div class="movie-seats-available">Seats Available: 226</div>
+            <div class="movie-release-date">Release Date: 14<sup>th</sup> january</div>
+        </div>
+        <div class="blog" onclick="Seating()">
+            <div class="img-blog">
+                <img src="movie7.jpg" alt="Movie Image">
+            </div>
+            <div class="movie-name">Housefull 4 </div>
+            <div class="movie-type">Comedy</div>
+            <div class="movie-rating">★★★★★</div>
+            <div class="movie-seats-available">Seats Available: 226</div>
+            <div class="movie-release-date">Release Date: 25<sup>th</sup> October</div>
+        </div>
+        <div class="blog" onclick="Seating()">
+            <div class="img-blog">
+                <img src="movie8.jpg" alt="Movie Image">
+            </div>
+            <div class="movie-name">Drishyam</div>
+            <div class="movie-type">Crime</div>
+            <div class="movie-rating">★★★★★</div>
+            <div class="movie-seats-available">Seats Available: 226</div>
+            <div class="movie-release-date">Release Date: 31<sup>th</sup> july</div>
+        </div>
+        <div class="blog" onclick="Seating()">
+            <div class="img-blog">
+                <img src="movie9.jpg" alt="Movie Image" >
+            </div>
+            <div class="movie-name">Pushpa 2</div>
+            <div class="movie-type">South</div>
+            <div class="movie-rating">★★★★★</div>
+            <div class="movie-seats-available">Seats Available: 226</div>
+            <div class="movie-release-date">Release Date: 30<sup>th</sup> january</div>
+        </div>
+       
+    </div>
+</main>
+<footer>
+    <p>&copy; 2023 All Rights Reserved</p>
+</footer>
+
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const themeButton = document.querySelector('.toggle-theme');
+            body.classList.toggle("dark-mode");
+
+            if (body.classList.contains("dark-mode")) {
+                themeButton.textContent = "☀️";
+                localStorage.setItem("theme", "dark");
+            } else {
+                themeButton.textContent = "🌙";
+                localStorage.setItem("theme", "light");
+            }
+        }
+
+        function loadTheme() {
+            const theme = localStorage.getItem("theme");
+            if (theme === "dark") {
+                document.body.classList.add("dark-mode");
+                document.querySelector('.toggle-theme').textContent = "☀️";
+            }
+        }
+
+        function Seating() {
+            window.location.href = "Movie-Seating";
+        }
+
+        document.addEventListener("DOMContentLoaded", loadTheme);
+       
+    </script>
+</body>
+</html>

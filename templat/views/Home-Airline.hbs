@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skyline Flights — Book Your Journey</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: url("bg-airline.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+            color: white;
+            text-align: center;
+        }
+
+        header {
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+            font-size: 1.5em;
+        }
+
+        .booking-form {
+            max-width: 600px;
+            margin: 50px auto;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 15px;
+            color: #333;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #2a5298;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #ff9800;
+            box-shadow: 0 0 10px rgba(255, 152, 0, 0.5);
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            background: #ff9800;
+            color: white;
+            font-size: 1.2em;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+
+        .btn-submit:hover {
+            background: #e68900;
+            transform: scale(1.05);
+        }
+
+        .features {
+            margin: 50px auto;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .feature-box {
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            padding: 20px;
+            border-radius: 15px;
+            width: 250px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .feature-box i {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: #ff9800;
+        }
+
+        footer {
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.8);
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            font-size: 1em;
+        }
+    </style>
+    <script>
+        function bookFlight(event) {
+            event.preventDefault();
+            let from = document.getElementById("from").value;
+            let to = document.getElementById("to").value;
+            let departure = document.getElementById("departure").value;
+            let passengers = document.getElementById("passengers").value;
+            let pricePerSeat = 500;
+            let totalPrice = passengers * pricePerSeat;
+            let seatNumbers = [];
+            for (let i = 0; i < passengers; i++) {
+                seatNumbers.push(Math.floor(Math.random() * 500) + 1);
+            }
+            alert(`Flight Ticket\nFrom: ${from}\nTo: ${to}\nDate: ${departure}\nPassengers: ${passengers}\nSeats: ${seatNumbers.join(", ")}\nTotal Price: ₹${totalPrice}`);
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Skyline Flights</h1>
+        <p>Your dream journey, just one click away.</p>
+    </header>
+
+    <div class="booking-form">
+        <h2>Book a Flight</h2>
+        <form onsubmit="bookFlight(event)">
+            <div class="form-group">
+                <label for="from">From:</label>
+                <input type="text" id="from" name="from" placeholder="City or Airport" required>
+            </div>
+            <div class="form-group">
+                <label for="to">To:</label>
+                <input type="text" id="to" name="to" placeholder="City or Airport" required>
+            </div>
+            <div class="form-group">
+                <label for="departure">Departure Date:</label>
+                <input type="date" id="departure" name="departure" required>
+            </div>
+            {{!-- <div class="form-group">
+                <label for="return">Return Date:</label>
+                <input type="date" id="return" name="return">
+            </div> --}}
+            <div class="form-group">
+                <label for="passengers">Passengers:</label>
+                <select id="passengers" name="passengers" required>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+            </div>
+            <button type="submit" class="btn-submit">Book</button>
+        </form>
+    </div>
+
+    <footer>
+        &copy; 2025 Skyline Flights | Seamless Travel, Inspired by the Skies.
+    </footer>
+</body>
+</html>

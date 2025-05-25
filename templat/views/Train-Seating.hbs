@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Train Booking Confirmation</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(to right, #415eb8, #6728b4);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #7f8db5;
+        margin: 0;
+      }
+      .container {
+        width: 50%;
+        background: rgba(255, 255, 255, 0.9);
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+        text-align: center;
+      }
+      h2 {
+        color: #2c3e50;
+        margin-bottom: 15px;
+        font-size: 24px;
+        text-transform: uppercase;
+        letter-spacing: 1.6px;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      input,
+      select {
+        width: 80%;
+        padding: 10px;
+        margin: 8px 0;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+      }
+      .seats-container {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin: 15px 0;
+      }
+      .compartment {
+        border: 2px solid #2c3e50;
+        padding: 10px;
+        border-radius: 8px;
+        text-align: center;
+      }
+      .seats {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 8px;
+        justify-content: center;
+        margin-top: 10px;
+      }
+      .seat {
+        width: 40px;
+        height: 40px;
+        background: #ddd;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        cursor: pointer;
+      }
+      .seat.selected {
+        background: #424eb9;
+        color: white;
+      }
+      .seat.occupied {
+        background: #b71c1c;
+        color: white;
+        cursor: not-allowed;
+      }
+      .submit-btn {
+        margin-top: 10px;
+        padding: 12px 20px;
+        background: #424eb9;
+        color: white;
+        border: none;
+        font-size: 18px;
+        font-weight: bold;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.3s ease-in-out;
+        text-transform: uppercase;
+      }
+      .submit-btn:hover {
+        background: #2c3e50;
+      }
+      .back-btn {
+        margin-top: 15px;
+        padding: 10px 15px;
+        background: #d32f2f;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        text-transform: uppercase;
+      }
+      .back-btn:hover {
+        background: #b71c1c;
+      }
+      .total-price {
+        margin-top: 15px;
+        font-size: 18px;
+        font-weight: bold;
+        color: #2c3e50;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Confirm Your Booking</h2>
+      <form onsubmit="return confirmBooking()">
+        <input
+          type="text"
+          id="name"
+          placeholder="Enter your full name"
+          required
+        />
+        <input
+          type="number"
+          id="age"
+          placeholder="Enter your age"
+          required
+          min="1"
+        />
+        <input
+          type="email"
+          id="email"
+          placeholder="Enter your email"
+          required
+        />
+
+        <label for="train">Select Train:</label>
+        <select id="train" onchange="updatePrice()">
+          <option value="122">Valsadvadnagar - ₹122</option>
+          <option value="180">Vande Bharat - ₹180</option>
+          <option value="70">Garib Rath - ₹70</option>
+          <option value="350">Queen Gujarat - ₹350</option>
+        </select>
+
+        <label for="seats">Number of Seats:</label>
+        <input
+          type="number"
+          id="seats"
+          min="1"
+          max="6"
+          value="1"
+          onchange="updatePrice()"
+        />
+
+        <h3>Select Seats</h3>
+        <div class="seats-container">
+          <div class="compartment">
+            <h4>D1</h4>
+            <div class="seats" id="D1"></div>
+          </div>
+        </div>
+
+        <p class="total-price">
+          Total Price: ₹<span id="totalPrice">122</span>
+        </p>
+
+        <button type="submit" class="submit-btn">Confirm Booking</button>
+      </form>
+      {{!-- <button class="back-btn" onclick="window.location.href='index.html'">
+        Back
+      </button> --}}
+    </div>
+
+   <script>
+  let pricePerSeat = parseInt(document.getElementById("train").value);
+
+  function updatePrice() {
+    let numSeats = document.querySelectorAll(".seat.selected").length;
+    let totalPrice = pricePerSeat * numSeats;
+    document.getElementById("totalPrice").innerText = totalPrice;
+  }
+
+  function confirmBooking() {
+    let name = document.getElementById("name").value;
+    let age = document.getElementById("age").value;
+    let email = document.getElementById("email").value;
+    let train = document.getElementById("train").selectedOptions[0].text;
+    let seats = document.querySelectorAll(".seat.selected").length;
+
+    if (!name || !age || !email || seats === 0) {
+      alert("Please fill all details and select at least one seat.");
+      return false;
+    }
+
+    alert(
+      "Booking confirmed for " +
+        name +
+        " (" +
+        age +
+        " years) on " +
+        train +
+        ". Seats: " +
+        seats +
+        ". Confirmation sent to " +
+        email
+    );
+    return true;
+  }
+
+  function createSeats(compartment) {
+    let container = document.getElementById(compartment);
+    for (let i = 1; i <= 102; i++) {
+      let seat = document.createElement("div");
+      seat.classList.add("seat");
+      seat.innerText = i;
+      container.appendChild(seat);
+    }
+  }
+
+  createSeats("D1");
+
+  document.getElementById("train").addEventListener("change", function () {
+    pricePerSeat = parseInt(this.value);
+    updatePrice();
+  });
+
+  function selectRandomSeats() {
+    let maxSeats = parseInt(document.getElementById("seats").value);
+    let availableSeats = Array.from(
+      document.querySelectorAll(".seat:not(.occupied):not(.selected)")
+    );
+
+    if (availableSeats.length < maxSeats) {
+      alert("Not enough available seats.");
+      return;
+    }
+
+    document.querySelectorAll(".seat.selected").forEach((seat) =>
+      seat.classList.remove("selected")
+    );
+
+    for (let i = 0; i < maxSeats; i++) {
+      let randomIndex = Math.floor(Math.random() * availableSeats.length);
+      availableSeats[randomIndex].classList.add("selected");
+      availableSeats.splice(randomIndex, 1);
+    }
+
+    updatePrice();
+    alert(maxSeats + " seats have been selected automatically.");
+  }
+
+  document.getElementById("seats").addEventListener("change", selectRandomSeats);
+</script>
+  </body>
+</html>
